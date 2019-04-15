@@ -19,7 +19,7 @@ export default class ReactSpace {
   */
   constructor() {
     
-    this.socket = io("https://calebouellettewebsite.appspot.com:8080", {
+    this.socket = io("https://reactspace.appspot.com", {
       transports: ['websocket', 'polling', 'flashsocket']
     }).connect();
     this.socket.on('connect', () => {

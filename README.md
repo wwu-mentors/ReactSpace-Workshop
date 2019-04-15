@@ -168,7 +168,7 @@ class TopBar extends React.Component {
       <header className="TopBar">
         <img src={logo} alt="ReactSpace" />
         <h4> ReactSpace</h4>
-        <span> Name: {this.props.name}</span>
+        <span> Name: {NAME}</span>
       </header>
     )
   }
@@ -340,3 +340,104 @@ class CreatePost extends React.Component {
 We now have part of a social network! We can send stuff to the ReactSpace servers, but now we need to get those posts back so we can see what everyone is up to.
 
 To do this we will need to do a few things. Step 1 will be to get posts from ReactSpace servers. We will then need to render each post to the page. 
+
+To keep everything lets build another React Component. Lets call it `PostList`.
+
+```javascript
+class PostList extends React.Component {
+
+  render() {
+    return (
+      <div>
+        This is a the post list!
+      </div>
+    )
+  }
+}
+```
+
+Go ahead and add it to `App`'s render method.
+
+To get Posts from the server we will need to a React Lifecycle method. Add a method called `compmonentDidMount`. This is called everytime a component is rendered to the page. In this method we are going to use the ReactSpace client to subscribe to new posts.
+
+RS.subscribeToPostList will call the function it is given every time a new post is made.
+
+```javascript
+class PostList extends React.Component {
+
+
+  componentDidMount() {
+    RS.subscribeToPostList((posts) => {
+      //TODO change state when we get a new post
+    });
+  }
+
+
+  render() {
+    return (
+      <div>
+        This is a the post list!
+      </div>
+    )
+  }
+}
+```
+
+Now we will need to add a postlist to state. We also want to update the `state.posts` everytime a new post is created.
+
+```javascript
+class PostList extends React.Component {
+  state = {
+    posts: []
+  }
+
+
+  componentDidMount() {
+    RS.subscribeToPostList((posts) => {
+      this.setState({
+        posts: posts
+      });
+    });
+  }
+
+
+  render() {
+    return (
+      <div>
+        This is a the post list!
+      </div>
+    )
+  }
+}
+```
+
+Finally we need to render each post in the render method we can use the Array.map function to generate a list of html elements.
+
+```javascript
+
+class PostList extends React.Component {
+  state = {
+    posts: []
+  }
+
+  componentDidMount() {
+    RS.subscribeToPostList((posts) => {
+      this.setState({
+        posts: posts
+      });
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.posts.map((postdata) => (
+          <Post key={postdata.id} post={postdata} />
+        ))}
+      </div>
+    )
+  }
+}
+
+
+```
