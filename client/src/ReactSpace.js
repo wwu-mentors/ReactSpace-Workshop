@@ -16,10 +16,12 @@ export default class ReactSpace {
   /**
   * ReactSpace API helper.
   * @constructor
-  * @param {string} url - The url of the server you are connecting to.
   */
-  constructor(url) {
-    this.socket = io(url).connect();
+  constructor() {
+    
+    this.socket = io("http://localhost:8080", {
+      transports: ['websocket', 'polling', 'flashsocket']
+    }).connect();
     this.socket.on('connect', () => {
       console.log('Connected!');
     });

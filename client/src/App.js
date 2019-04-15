@@ -3,14 +3,14 @@ import ReactSpace from './ReactSpace';
 import logo from './logo.svg';
 import './App.css';
 
-const RS = new ReactSpace("http://localhost:80");
+const RS = new ReactSpace();
 
 /*
 * You are in the right file. Don't worry 
 * about any other file just stay here!
 */
 
-const NAME = "Open App.js and find this text!"; // <-- Put your name here!
+const NAME = "Your name here!"; // <-- Put your name here!
 
 export class App extends React.Component {
 

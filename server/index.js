@@ -1,6 +1,7 @@
-const io = require('socket.io')(80);
 const app = require('express')();
-const port = 3001;
+const http = require('http').Server(app);
+const io = require('socket.io')(http);
+const port = 8080;
 
 const MAXPOSTCOUNT = 25;
 
@@ -49,7 +50,15 @@ app.get('/preventposts', (req, res) => {
 });
 app.get('/allowposts', (req, res) => {
   preventPosts = false;
+  console.log('listening on *:' + port);
   res.send();
 });
 
-app.listen(port, () => console.log(`ReactSpace API listening on port ${port}! and sockets on port 80`));
+app.get('/', (req, res) => {
+  res.send(postList);
+});
+
+
+http.listen(port, function () {
+  console.log('listening on *:' + port);
+});
