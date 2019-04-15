@@ -101,7 +101,7 @@ CSS makes things look pretty. It deals with font size, colors, shadows, ect.
 }
 ```
 
-In order to link CSS to HTML we will use the "className" property in React. This will apply the CSS class to that HTML element.
+In order to link CSS to HTML we will use the `className` property in React. This will apply the CSS class to that HTML element.
 
 ```html
 <div> 
@@ -115,7 +115,7 @@ React is a really awesome way to manipulate HTML and CSS to build websites. Reac
 
 ## [Click here to get started](TODO)
 
-The file we will work in today is App.js. Don't worry about any other file. Today we will only work in App.js.
+The file we will work in today is `App.js`. Don't worry about any other file. Today we will only work in `App.js`.
 
 If you found this file go ahead and put your first name into the NAME variable.
 
@@ -140,11 +140,11 @@ export class App extends React.Component {
   }
 }
 ```
-The App class is a React component because it extends React.Component . 
+The App class is a React component because it extends `React.Component` . 
 
-In every React Component there needs to be a render method. This returns HTML that will be rendered when this component is used. When working with React we can use actually just return HTML in our render function. This is really handy and makes it easy to put dynamically put HTML on the page. This ability to return HTML is a feature of JSX, which is an extension of Javascript. Go ahead and play around with what is returned. 
+In every React Component there needs to be a `render` method. This returns HTML that will be rendered when this component is used. When working with React we can use actually just return HTML in our render function. This is really handy and makes it easy to dynamically put HTML on the page. This ability to return HTML is a feature of JSX, which is an extension of Javascript. Go ahead and play around with what is returned. 
 
-You can use the {} to execute code inside the HTML. 
+You can use the `{}` to execute code inside the HTML. 
 Try putting the NAME varible into your HTML like this:
 
 ```javascript
@@ -158,7 +158,7 @@ render() {
 ```
 You can use this to put in simple strings to your HTML. 
 
-Now lets look at adding some other stuff. I have already built a component for you to toy with. Its called TopBar and its at the bottom of App.js file.
+Now lets look at adding some other stuff. I have already built a component for you to toy with. Its called `TopBar` and its at the bottom of `App.js` file.
 
 It looks like this
 ```javascript
@@ -175,9 +175,9 @@ class TopBar extends React.Component {
 }
 ```
 
-This component is built just like our App component. Lets add it to App so we can see it render on the page.
+This component is built just like our `App` component. Lets add it to `App` so we can see it render on the page.
 
-Add TopBar to App's render method like this:
+Add `TopBar` to `App`'s `render` method like this:
 ```javascript
 export class App extends React.Component {
 
@@ -194,20 +194,22 @@ export class App extends React.Component {
 
 Lets take a second and thing about what is going on. 
 
-React is rendering App to the page using App's rendering method.
-App is rendering TopBar to the page using TopBar's rendering method.
+React is rendering `App` to the page using `App`'s rendering method.
+`App` is rendering `TopBar` to the page using `TopBar`'s rendering method.
 
 This is the core of how React app are each Component will render on the page, and optionally call other components to be rendered to the page. This creates a component tree. The App Component is the Root of this tree.
 
-Try playing around with this by adding more Topbars to the page.
+TODO put image here of component tree
+
+Try playing around with this by adding antoher `Topbar` to the page.
 
 # Part 2 Building Components
 
 Our goal in this workshop is create a social media website. Every social media site needs a way to create a post. So lets build a React component that can create a post.
 
-Scroll to the bottom of App.js and create a class called "CreatePost" that extends React.Component.
+Scroll to the bottom of App.js and create a class called `CreatePost` that extends `React.Component`.
 
-The component will need a render method, so go ahead and that to.
+The component will need a `render` method, so go ahead and that to.
 
 ```javascript
 class CreatePost extends React.Component {
@@ -220,7 +222,7 @@ class CreatePost extends React.Component {
   }
 }
 ```
-Now to make sure everything is working lets add this to our App component.
+Now to make sure everything is working lets add this to our `App` component.
 
 ```javascript
 export class App extends React.Component {
@@ -237,7 +239,7 @@ export class App extends React.Component {
 }
 ```
 
-The first thing we need is a way for the user to enter some post text. For this we will need the "input" component. You can add it the same way you added TopBar. Add it inside the div like this:
+The first thing we need is a way for the user to enter some post text. For this we will need the `input` component. You can add it the same way you added `TopBar`. Add it inside the div like this:
 
 ```javascript
 class CreatePost extends React.Component {
@@ -255,7 +257,7 @@ class CreatePost extends React.Component {
 Great now we got an input, but right now that text isn't really going anywhere. We need a way to get ahold of the text so that we can send our post to the ReactSpace servers. 
 
 
-To do this we will need to introduce a few concepts. First is the concept of "state". The React.Component Class has a property call "state". You can add anything to "state". The cool thing is that everytime you change state, the component will re-render. This allows us to change the UI as the state inside our app changes. 
+To do this we will need to introduce a few concepts. First is the concept of `state`. The `React.Component` Class has a property call `state`. You can add anything to `state`. The cool thing is that everytime you change `state`, the component will re-render. This allows us to change the UI as the `state` inside our app changes. 
 
 Thats a lot to take in, so lets see an example.
 
@@ -281,26 +283,26 @@ class CreatePost extends React.Component {
 
 I added 3 things to our code
 
-1. state property. Adding this to the class will set its value when the class in constructed.
+1. `state` property. Adding this to the class will set its value when the class in constructed.
 
-2. On input, I added value prop equal to our state.postText. This will set the input's value to our state.postText.
+2. On input, I added `value` prop equal to our `state.postText`. This will set the input's value to our `state.postText`.
 
-3. Also on input, I added an onChange event. Everytime you type in the input onChange is called. We then use this.setState() to update the state.
+3. Also on input, I added an `onChange` prop. Everytime you type in the input `onChange` is called. We then use `this.setState()` to update the state.
 
-> Always use this.setState() to modify state. 
+> Always use this.setState() to modify state. This insures the component always re-renders correctly.
 
 Optional: 
-To see this working you can add the following inside render
+To see this working you can add the following inside render.
 ```javascript 
 {this.state.postText}
 ```
 Then type and watch the text change.
 
-We now have captured the user's input into the state of our component. The last thing we need to do is send this import post the ReactSpace servers. To do this we need to add a button. We will also need to a createPost method.
+We now have captured the user's input into the `state` of our component. The last thing we need to do is send this import post the ReactSpace servers. To do this we need to add a button. We will also need to a `createPost` method.
 
-The button Works how you would expect. The onClick prop calls this.createPost on click.
+The button Works how you would expect. The `onClick` prop calls `this.createPost` on click.
 
-The createPost method will send a post to the ReactSpace servers. This will also take in your name. After it sends the post, it set postText bake to empty.
+The `createPost` method will send a post to the ReactSpace servers. This will also take in your name. After it sends the post, it set postText back to empty.
 
 And yes the ReactSpace Servers are real, anything you send them will be read by people, so don't say anything bad mmmmk?
 
@@ -337,4 +339,4 @@ class CreatePost extends React.Component {
 
 We now have part of a social network! We can send stuff to the ReactSpace servers, but now we need to get those posts back so we can see what everyone is up to.
 
-
+To do this we will need to do a few things. Step 1 will be to get posts from ReactSpace servers. We will then need to render each post to the page. 

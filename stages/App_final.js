@@ -3,7 +3,7 @@ import ReactSpace from './ReactSpace';
 import logo from './logo.svg';
 import './App.css';
 
-const RS = new ReactSpace("http://localhost:80");
+const RS = new ReactSpace();
 
 /*
 * You are in the right file. Don't worry 
