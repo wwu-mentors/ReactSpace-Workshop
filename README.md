@@ -503,6 +503,4 @@ class PostList extends React.Component {
 
 # TODO
 1. Spellcheck
-2. Publish to codesandbox thing (1/4)
-3. Add default posts to API.
-5. Create Diagrams
+2. Create Diagrams
