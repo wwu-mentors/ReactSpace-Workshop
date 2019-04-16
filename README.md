@@ -383,7 +383,9 @@ class PostList extends React.Component {
 }
 ```
 
-Now we will need to add a postlist to state. We also want to update the `state.posts` everytime a new post is created.
+Now we will need to add a postlist to state. We also want to update the `state.posts` everytime a new post is created. 
+
+Recall that everytime time state is change the component will re-render. This means our page will update everytime a a new post is created.
 
 ```javascript
 class PostList extends React.Component {
@@ -411,7 +413,9 @@ class PostList extends React.Component {
 }
 ```
 
-Finally we need to render each post in the render method we can use the Array.map function to generate a list of html elements.
+Finally we need to render each post in the render method we can use the Array.map function to generate a list of HTML elements. 
+
+We also need to add a key property when working with a list. This property helps React manage the list and improve performance.
 
 ```javascript
 
@@ -432,12 +436,43 @@ class PostList extends React.Component {
     return (
       <div>
         {this.state.posts.map((postdata) => (
-          <Post key={postdata.id} post={postdata} />
+          <div key={postdata.id}> postdata.content </div>
         ))}
       </div>
     )
   }
 }
+```
+
+We can add a little more strucute and CSS classes to make this post look a little better
 
 
+```javascript
+
+class PostList extends React.Component {
+  state = {
+    posts: []
+  }
+
+  componentDidMount() {
+    RS.subscribeToPostList((posts) => {
+      this.setState({
+        posts: posts
+      });
+    });
+  }
+
+  render() {
+    return (
+      <div>
+        {this.state.posts.map((postdata) => (
+          <div className="Container">
+            <div className="UserName" >{this.props.post.user}</div>
+            <div className="PostContent" >{this.props.post.content}</div>
+          </div>
+        ))}
+      </div>
+    )
+  }
+}
 ```
