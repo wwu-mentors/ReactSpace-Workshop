@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactSpace from './ReactSpace';
-import logo from './logo.svg';
-import './App.css';
 
 const RS = new ReactSpace();
 
@@ -30,7 +28,7 @@ class TopBar extends React.Component {
   render() {
     return (
       <header className="TopBar">
-        <img src={logo} alt="ReactSpace" />
+        <img src="./logo.svg" alt="ReactSpace" />
         <h4> ReactSpace</h4>
         <span>Name: {NAME}</span>
       </header>
@@ -80,22 +78,13 @@ class PostList extends React.Component {
   render() {
     return (
       <div>
-        {this.state.posts.map((postdata) => (
-          <Post key={postdata.id} post={postdata} />
+        {this.state.posts.map((post) => (
+          <div key={post.id}  className="Container">
+            <div className="UserName" >{post.user}</div>
+            <div className="PostContent" >{post.content}</div>
+          </div>
         ))}
       </div>
     )
   }
 }
-
-class Post extends React.Component {
-  render() {
-    return (
-      <div className="Container">
-        <div className="UserName" >{this.props.post.user}</div>
-        <div className="PostContent" >{this.props.post.content}</div>
-      </div>
-    )
-  }
-}
-

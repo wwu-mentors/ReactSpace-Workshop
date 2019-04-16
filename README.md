@@ -166,7 +166,7 @@ class TopBar extends React.Component {
   render() {
     return (
       <header className="TopBar">
-        <img src={logo} alt="ReactSpace" />
+        <img src="./logo.svg" alt="ReactSpace" />
         <h4> ReactSpace</h4>
         <span> Name: {NAME}</span>
       </header>
@@ -204,6 +204,8 @@ TODO put image here of component tree
 Try playing around with this by adding antoher `Topbar` to the page.
 
 # Part 2 Building Components
+
+## [Here is a working Version of what we have so far.](TODO)
 
 Our goal in this workshop is create a social media website. Every social media site needs a way to create a post. So lets build a React component that can create a post.
 
@@ -336,6 +338,7 @@ class CreatePost extends React.Component {
 
 # Part 3 Putting it all together.
 
+## [Here is a working Version of what we have so far.](TODO)
 
 We now have part of a social network! We can send stuff to the ReactSpace servers, but now we need to get those posts back so we can see what everyone is up to.
 
@@ -387,6 +390,22 @@ Now we will need to add a postlist to state. We also want to update the `state.p
 
 Recall that everytime time state is change the component will re-render. This means our page will update everytime a a new post is created.
 
+The `RS.subscribeToPostList` method will return a list of posts that look like this 
+
+```javasript
+[{
+  "id": 1
+  "content": "Post content!"
+  "name" "Caleb"
+},
+{
+  "id": 2
+  "content": "Post content 2!"
+  "user" "Haley"
+}]
+```
+
+
 ```javascript
 class PostList extends React.Component {
   state = {
@@ -435,8 +454,8 @@ class PostList extends React.Component {
   render() {
     return (
       <div>
-        {this.state.posts.map((postdata) => (
-          <div key={postdata.id}> postdata.content </div>
+        {this.state.posts.map((post) => (
+          <div key={post.id}> {post.content} </div>
         ))}
       </div>
     )
@@ -444,8 +463,7 @@ class PostList extends React.Component {
 }
 ```
 
-We can add a little more strucute and CSS classes to make this post look a little better
-
+We can add a little more strucute and CSS classes to make this post look a little better.
 
 ```javascript
 
@@ -465,10 +483,10 @@ class PostList extends React.Component {
   render() {
     return (
       <div>
-        {this.state.posts.map((postdata) => (
+        {this.state.posts.map((post) => (
           <div className="Container">
-            <div className="UserName" >{this.props.post.user}</div>
-            <div className="PostContent" >{this.props.post.content}</div>
+            <div className="UserName" >{post.user}</div>
+            <div className="PostContent" >{post.content}</div>
           </div>
         ))}
       </div>
@@ -476,3 +494,15 @@ class PostList extends React.Component {
   }
 }
 ```
+
+# We did it!
+
+[Link to final version](https://codesandbox.io/s/646n7685yw)
+
+
+
+# TODO
+1. Spellcheck
+2. Publish to codesandbox thing (1/4)
+3. Add default posts to API.
+5. Create Diagrams

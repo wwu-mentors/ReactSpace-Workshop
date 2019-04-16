@@ -3,18 +3,29 @@ const http = require('http').Server(app);
 const io = require('socket.io')(http);
 const port = 8080;
 
-const MAXPOSTCOUNT = 25;
+const MAXPOSTCOUNT = 5;
+const defaultPosts = [
+  {
+    "id": 0,
+    "user": "Caleb",
+    "content": "I'm Teaching a React Workshop Today! How meta."
+  },
+  {
+    "id": 1,
+    "user": "Not Caleb",
+    "content": "Wow so excited for this React Workshop Today."
+  }
+]
 
-let postsCreated = 0;
-let postList = [];
+let postsCreated = 2;
+let postList = [...defaultPosts];
 let preventPosts = false;
-
 
 function addPost(post) { 
   if (preventPosts) { 
     return false;
   }
-  if (!post.content || !post.user) {
+  if (!post.content || !post.user || post.user === "Your name here!") {
     return false;
   }
   post.id = postsCreated;
@@ -40,17 +51,19 @@ io.on('connection', function (socket) {
 });
 
 app.get('/deleteall', (req, res) => {
-  postList = []
+  console.log("deleting posts");
+  postList =  [...defaultPosts];
   io.emit('postlist', postList);
   res.send();
 });
 app.get('/preventposts', (req, res) => {
+  console.log("posts now prevented");
   preventPosts = true;
   res.send();
 });
 app.get('/allowposts', (req, res) => {
-  preventPosts = false;
-  console.log('listening on *:' + port);
+  console.log("posts now allowed");
+  preventPosts = false;  
   res.send();
 });
 
