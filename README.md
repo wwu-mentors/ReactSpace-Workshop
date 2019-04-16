@@ -113,7 +113,7 @@ In order to link CSS to HTML we will use the `className` property in React. This
 # React
 React is a really awesome way to manipulate HTML and CSS to build websites. React is considered a Front-end JavaScript Framework.
 
-## [Click here to get started](TODO)
+## [Click here to get started](https://codesandbox.io/s/8n03nw0y2)
 
 The file we will work in today is `App.js`. Don't worry about any other file. Today we will only work in `App.js`.
 
@@ -205,7 +205,7 @@ Try playing around with this by adding antoher `Topbar` to the page.
 
 # Part 2 Building Components
 
-## [Here is a working Version of what we have so far.](TODO)
+## [Here is a working Version of what we have so far.](https://codesandbox.io/s/2zx84o46qj)
 
 Our goal in this workshop is create a social media website. Every social media site needs a way to create a post. So lets build a React component that can create a post.
 
@@ -338,7 +338,7 @@ class CreatePost extends React.Component {
 
 # Part 3 Putting it all together.
 
-## [Here is a working Version of what we have so far.](TODO)
+## [Here is a working Version of what we have so far.](https://codesandbox.io/s/oj2yp61yp6)
 
 We now have part of a social network! We can send stuff to the ReactSpace servers, but now we need to get those posts back so we can see what everyone is up to.
 
