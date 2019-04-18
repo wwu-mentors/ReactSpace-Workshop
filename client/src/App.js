@@ -8,7 +8,7 @@ const RS = new ReactSpace();
  * about any other file just stay here!
  */
 
-const NAME = "Your naasdfme here!"; // <-- Put your name here!
+const NAME = "Your name here!"; // <-- Put your name here!
 
 export class App extends React.Component {
   render() {
