@@ -13,6 +13,7 @@ export default class ReactSpace {
   socket;
   postlist = [];
 
+  subscribers = {};
   /**
   * ReactSpace API helper.
   * @constructor
@@ -25,6 +26,12 @@ export default class ReactSpace {
     this.socket.on('connect', () => {
       console.log('Connected!');
     });
+    this.socket.on("postlist", (data) => {
+      this.postlist = data;
+      for (let key in this.subscribers) { 
+        this.subscribers[key](this.postlist);
+      }
+    })
   }
 
   /**
@@ -32,12 +39,18 @@ export default class ReactSpace {
   * @param {function} callback - The callback that recieves an array of posts.
   */
   subscribeToPostList = (callback) => {
-    this.socket.on("postlist", (data) => {
-      callback(data);
-    });
+    this.subscribers[callback] = callback;
     callback(this.postlist);
   }
   
+  /**
+   * Remvoe a callback subscribed function
+   * @param {function} callback - The callback that recieves an array of posts.
+   */
+  removeSubscribeToPostList = (callback) => {
+    this.subscribers[callback] = undefined;
+  }
+
   /**
   * Register a callback function to recieve a list of posts.
   * @param {string} username - Name of user creating the post.

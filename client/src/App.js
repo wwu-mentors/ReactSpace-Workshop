@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import ReactSpace from "./ReactSpace";
 
 const RS = new ReactSpace();
@@ -8,10 +8,9 @@ const RS = new ReactSpace();
  * about any other file just stay here!
  */
 
-const NAME = "Your naasdfme here!"; // <-- Put your name here!
+const NAME = "Your name here!"; // <-- Put your name here!
 
-export class App extends React.Component {
-  render() {
+export function App() {
     return (
       <div className="App">
         <TopBar />
@@ -19,11 +18,10 @@ export class App extends React.Component {
         <PostList />
       </div>
     );
-  }
 }
 
-class TopBar extends React.Component {
-  render() {
+
+function TopBar() {
     return (
       <header className="TopBar">
         <img src="./logo.svg" alt="ReactSpace" />
@@ -31,54 +29,42 @@ class TopBar extends React.Component {
         <span>Name: {NAME}</span>
       </header>
     );
-  }
 }
 
-class CreatePost extends React.Component {
-  state = {
-    postText: ""
+
+function CreatePost() { 
+  const [postText, setPostText] = useState("");
+
+  const createPost = () => {
+    RS.makePost(NAME, postText);
+    setPostText("")
   };
 
-  createPost = () => {
-    RS.makePost(NAME, this.state.postText);
-    this.setState({
-      postText: ""
-    });
-  };
-
-  render() {
-    return (
+   return (
       <div className="Container">
         <input
           placeholder="Enter Post Text"
-          value={this.state.postText}
+          value={postText}
           onChange={event => {
-            this.setState({ postText: event.target.value });
+            setPostText(event.target.value);
           }}
         />
-        <button onClick={this.createPost}>Create Post!</button>
+        <button onClick={createPost}>Create Post!</button>
       </div>
     );
-  }
 }
 
-class PostList extends React.Component {
-  state = {
-    posts: []
-  };
+function PostList() { 
 
-  componentDidMount() {
-    RS.subscribeToPostList(posts => {
-      this.setState({
-        posts: posts
-      });
-    });
-  }
+  const [postlist, setPostList] = useState([]);
 
-  render() {
-    return (
+  useEffect(() => {
+    RS.subscribeToPostList(setPostList);
+  }, []);
+
+  return (
       <div>
-        {this.state.posts.map(post => (
+        {postlist.map(post => (
           <div key={post.id} className="Container">
             <div className="UserName">{post.user}</div>
             <div className="PostContent">{post.content}</div>
@@ -86,5 +72,4 @@ class PostList extends React.Component {
         ))}
       </div>
     );
-  }
 }
