@@ -8,41 +8,54 @@
 
 import io from 'socket.io-client';
 
-export default class ReactSpace { 
+export default class ReactSpace {
 
   socket;
   postlist = [];
 
+  subscribers = {};
   /**
-  * ReactSpace API helper.
-  * @constructor
-  */
+   * ReactSpace API helper.
+   * @constructor
+   */
   constructor() {
-    
+
     this.socket = io("https://reactspace.appspot.com", {
       transports: ['websocket', 'polling', 'flashsocket']
     }).connect();
     this.socket.on('connect', () => {
       console.log('Connected!');
     });
+    this.socket.on("postlist", (data) => {
+      this.postlist = data;
+      for (let key in this.subscribers) {
+        this.subscribers[key](this.postlist);
+      }
+    });
   }
 
   /**
-  * Register a callback function to recieve a list of posts.
-  * @param {function} callback - The callback that recieves an array of posts.
-  */
+   * Register a callback function to recieve a list of posts.
+   * @param {function} callback - The callback that recieves an array of posts.
+   */
   subscribeToPostList = (callback) => {
-    this.socket.on("postlist", (data) => {
-      callback(data);
-    });
+    this.subscribers[callback] = callback;
     callback(this.postlist);
   }
-  
+
   /**
-  * Register a callback function to recieve a list of posts.
-  * @param {string} username - Name of user creating the post.
-  * @param {string} content - Content of the post.
-  */
+   * Remvoe a callback subscribed function
+   * @param {function} callback - The callback that recieves an array of posts.
+   */
+  removeSubscribeToPostList = (callback) => {
+    this.subscribers[callback] = undefined;
+  }
+
+  /**
+   * Register a callback function to recieve a list of posts.
+   * @param {string} username - Name of user creating the post.
+   * @param {string} content - Content of the post.
+   */
   makePost = (user, content) => {
     const post = {
       user,
