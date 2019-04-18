@@ -11,6 +11,7 @@ We will be giving a brief overview of web development and React. Next, we will b
 #### [People love it!](https://insights.stackoverflow.com/survey/2019?utm_source=so-owned&utm_medium=blog&utm_campaign=dev-survey-2019&utm_content=launch-blog#technology-_-most-loved-dreaded-and-wanted-web-frameworks)
 
 #### [Its really popular!](https://npm-stat.com/charts.html?package=react&package=vue&package=%40angular%2Fcore&from=2014-12-12&to=2018-12-12)
+test this link
 
 
 # The Web Basics
@@ -112,6 +113,8 @@ In order to link CSS to HTML, we will use the `className` property in React. Thi
 
 # React
 React is a really awesome way to manipulate HTML and CSS to build websites. React is considered a Front-end JavaScript Framework.
+
+TODO MORE REACT
 
 ## [Click here to get started](https://codesandbox.io/s/8n03nw0y2)
 
@@ -396,7 +399,7 @@ The `RS.subscribeToPostList` method will return a list of posts that look like t
 [{
   "id": 1
   "content": "Post content!"
-  "name" "Caleb"
+  "user" "Caleb"
 },
 {
   "id": 2
@@ -503,3 +506,6 @@ class PostList extends React.Component {
 
 # TODO
 1. Create Diagrams
+2. More Javascript .
+3. More Background .
+4. Add Post component.
