@@ -56,11 +56,13 @@ app.get('/deleteall', (req, res) => {
   io.emit('postlist', postList);
   res.send();
 });
+
 app.get('/preventposts', (req, res) => {
   console.log("posts now prevented");
   preventPosts = true;
   res.send();
 });
+
 app.get('/allowposts', (req, res) => {
   console.log("posts now allowed");
   preventPosts = false;  
