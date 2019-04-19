@@ -10,15 +10,11 @@ We will be giving a brief overview of web development and React. Next, we will b
 
 #### [People love it!](https://insights.stackoverflow.com/survey/2019?utm_source=so-owned&utm_medium=blog&utm_campaign=dev-survey-2019&utm_content=launch-blog#technology-_-most-loved-dreaded-and-wanted-web-frameworks)
 
-#### [Its really popular!](https://npm-stat.com/charts.html?package=react&package=vue&package=%40angular%2Fcore&from=2014-12-12&to=2018-12-12)
-test this link
-
 
 # The Web Basics
 
 ## Javascript
-JavaScript! JavaScript is great! JavaScript is the only language that can run inside the browser.
-
+JavaScript is interpreted language that supports many programming styles of programming such object-oriented, and functional. JavaScript is not just a scripting langauge. One thing that makes JavaScript special is that it can run inside the browser.
 
 Here are some examples to get you started. JavaScript does not have types (like python). JavaScript has curly braces and semicolons like Java and C. Here is a simple function call with a variable declaration.
 
@@ -81,6 +77,8 @@ class MyFirstClass extends AnotherClass{
 
 ```
 
+[Check out this link for more examples.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript)
+
 
 ## HTML & CSS
 
@@ -111,10 +109,23 @@ In order to link CSS to HTML, we will use the `className` property in React. Thi
 </div>
 ```
 
-# React
-React is a really awesome way to manipulate HTML and CSS to build websites. React is considered a Front-end JavaScript Framework.
 
-TODO MORE REACT
+
+# React
+So how does React fit in? React is a JavaScript Framework. React provides an elegant way to build user interfaces using HTML, CSS and JavaScript. 
+
+React simplifies building user interfaces by breaking everything down into Components. Components are small pieces of a UI. Components are re-usable, and you can also use Components inside other components. 
+
+Today we are going to build a Social Network site call ReactSpace. To do this we are going to need a number of components to see this through.
+
+Here is the Layout. Each Box is going to be a React Component.
+
+# TODO IMAGE HERE
+
+Here is how those components relate.
+
+# TODO IMAGE HERE
+
 
 ## [Click here to get started](https://codesandbox.io/s/8n03nw0y2)
 
@@ -509,3 +520,7 @@ class PostList extends React.Component {
 2. More Javascript .
 3. More Background .
 4. Add Post component.
+
+# Sources
+[reactjs.org](https://reactjs.org/)
+[What is React? | Mosh](https://www.youtube.com/watch?v=N3AkSS5hXMA)
