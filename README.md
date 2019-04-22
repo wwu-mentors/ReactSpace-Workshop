@@ -120,11 +120,11 @@ Today we are going to build a Social Network site call ReactSpace. To do this we
 
 Here is the Layout. Each Box is going to be a React Component.
 
-# TODO IMAGE HERE
+![Layout](https://storage.googleapis.com/reactspaceimages/Layout.png)
 
 Here is how those components relate.
 
-# TODO IMAGE HERE
+![Component Tree](https://storage.googleapis.com/reactspaceimages/Component%20Tree.png)
 
 
 ## [Click here to get started](https://codesandbox.io/s/8n03nw0y2)
@@ -516,11 +516,11 @@ class PostList extends React.Component {
 
 
 # TODO
-1. Create Diagrams
 2. More Javascript .
 3. More Background .
 4. Add Post component.
 
 # Sources
-[reactjs.org](https://reactjs.org/)
-[What is React? | Mosh](https://www.youtube.com/watch?v=N3AkSS5hXMA)
+* [reactjs.org](https://reactjs.org/)
+
+* [What is React? | Mosh](https://www.youtube.com/watch?v=N3AkSS5hXMA)
