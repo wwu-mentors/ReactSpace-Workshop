@@ -14,7 +14,7 @@ We will be giving a brief overview of web development and React. Next, we will b
 # The Web Basics
 
 ## Javascript
-JavaScript is interpreted language that supports many programming styles of programming such object-oriented, and functional. JavaScript is not just a scripting langauge. One thing that makes JavaScript special is that it can run inside the browser.
+JavaScript is interpreted language that supports many programming styles such as Object Oriented and Functional. JavaScript is not just a scripting langauge. One thing that makes JavaScript special is that it can run inside the browser.
 
 Here are some examples to get you started. JavaScript does not have types (like python). JavaScript has curly braces and semicolons like Java and C. Here is a simple function call with a variable declaration.
 
@@ -108,15 +108,18 @@ In order to link CSS to HTML, we will use the `className` property in React. Thi
   <p> This is a paragraph of text!</p>
 </div>
 ```
+This combination of would produce a web page that looks like this:
+
+![HTML example](https://storage.googleapis.com/reactspaceimages/Screenshot%20from%202019-04-22%2011-05-23.png)
 
 
 
 # React
 So how does React fit in? React is a JavaScript Framework. React provides an elegant way to build user interfaces using HTML, CSS and JavaScript. 
 
-React simplifies building user interfaces by breaking everything down into Components. Components are small pieces of a UI. Components are re-usable, and you can also use Components inside other components. 
+React simplifies building user interfaces by breaking everything down into Components. Components are small pieces of a UI. Components are re-usable, and can also be placed inside other Components. 
 
-Today we are going to build a Social Network site call ReactSpace. To do this we are going to need a number of components to see this through.
+Today we are going to build a Social Network call ReactSpace. To do this we are going to need a number of components.
 
 Here is the Layout. Each Box is going to be a React Component.
 
@@ -127,6 +130,11 @@ Here is how those components relate.
 ![Component Tree](https://storage.googleapis.com/reactspaceimages/Component%20Tree.png)
 
 
+As you can See App is the top level Component, will be the root of our component tree. We will add other components inside App to build out our site.
+
+
+# Part 1 Working with Components
+
 ## [Click here to get started](https://codesandbox.io/s/8n03nw0y2)
 
 The file we will work in today is `App.js`. Don't worry about any other file. Today we will only work in `App.js`.
@@ -136,8 +144,6 @@ If you found this file go ahead and put your first name into the NAME variable.
 ```javascript
 const NAME = "Your name here!"; // <-- Put your name here!
 ```
-
-# Part 1 Working with Components
 
 Components are the lego pieces of a React app. In this workshop, we will both build React components and combine them to make an app.
 
