@@ -14,11 +14,11 @@ We will be giving a brief overview of web development and React. Next, we will b
 # The Web Basics
 
 ## Javascript
-JavaScript is interpreted language that supports many programming styles such as Object Oriented and Functional. JavaScript is not just a scripting langauge. One thing that makes JavaScript special is that it can run inside the browser.
+JavaScript is interpreted language that supports many programming styles such as Object Oriented and Functional. One thing that makes JavaScript special is that it can run inside a web browser.
 
-Here are some examples to get you started. JavaScript does not have types (like python). JavaScript has curly braces and semicolons like Java and C. Here is a simple function call with a variable declaration.
+Here are some examples to get you started. JavaScript does not have types (like python). JavaScript has curly braces and semicolons like Java and C. 
 
-
+Here is a simple function call with a variable declaration.
 ```javascript
 let x = Math.abs(3); // JavaScript
 ```
@@ -219,8 +219,6 @@ React is rendering `App` to the page using the `App.render` method.
 `App` is rendering `TopBar` to the page using `TopBar`'s rendering method.
 
 This is the core of how React apps work. Each Component will render on the page, and optionally call other components to be rendered to the page. This creates a component tree. The App Component is the Root of this tree.
-
-TODO put image here of component tree
 
 Try playing around with this by adding another `Topbar` to the page.
 
@@ -520,12 +518,6 @@ class PostList extends React.Component {
 
 [Link to final version](https://codesandbox.io/s/646n7685yw)
 
-
-
-# TODO
-2. More Javascript .
-3. More Background .
-4. Add Post component.
 
 # Sources
 * [reactjs.org](https://reactjs.org/)
