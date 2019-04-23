@@ -10,6 +10,7 @@ We will be giving a brief overview of web development and React. Next, we will b
 
 #### [People love it!](https://insights.stackoverflow.com/survey/2019?utm_source=so-owned&utm_medium=blog&utm_campaign=dev-survey-2019&utm_content=launch-blog#technology-_-most-loved-dreaded-and-wanted-web-frameworks)
 
+#### [It's popular!](https://npmcharts.com/compare/react,angular,@angular/core,ember-cli,vue?interval=30)
 
 # The Web Basics
 
