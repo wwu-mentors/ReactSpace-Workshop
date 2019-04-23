@@ -115,9 +115,9 @@ This combination of would produce a web page that looks like this:
 
 
 # React
-So how does React fit in? React is a JavaScript Framework. React provides an elegant way to build user interfaces using HTML, CSS and JavaScript. 
+So how does React fit in? React is a JavaScript Framework. React provides an elegant way to build user interfaces using HTML, CSS, and JavaScript. 
 
-React simplifies building user interfaces by breaking everything down into Components. Components are small pieces of a UI. Components are re-usable, and can also be placed inside other Components. 
+React simplifies building user interfaces by breaking everything down into Components. Components are small pieces of a UI. Components are reusable, and can also be placed inside other Components. 
 
 Today we are going to build a Social Network call ReactSpace. To do this we are going to need a number of components.
 
@@ -325,7 +325,7 @@ The button Works how you would expect. The `onClick` prop calls `this.createPost
 
 The `createPost` method will send a post to the ReactSpace servers. This will also take in your name. After it sends the post, it set postText back to empty.
 
-And yes the ReactSpace Servers are real, anything you send them will be read by people, so don't say anything bad mmmmk?
+And yes the ReactSpace Servers are real, anything you send them will be read by people, so don't say anything bad. :)
 
 ```javascript
 class CreatePost extends React.Component {
