@@ -14,7 +14,7 @@ We will be giving a brief overview of web development and React. Next, we will b
 
 # The Web Basics
 
-## Javascript
+## JavaScript
 JavaScript is interpreted language that supports many programming styles such as Object Oriented and Functional. One thing that makes JavaScript special is that it can run inside a web browser.
 
 Here are some examples to get you started. JavaScript does not have types (like python). JavaScript has curly braces and semicolons like Java and C. 
@@ -164,7 +164,7 @@ export class App extends React.Component {
 ```
 The App class is a React component because it extends `React.Component` . 
 
-In every React Component, there needs to be a `render` method. This returns HTML that will be rendered when this component is used. When working with React we can use actually just return HTML in our render function. This is really handy and makes it easy to dynamically put HTML on the page. This ability to return HTML is a feature of JSX, which is an extension of Javascript. Go ahead and play around with what is returned. 
+In every React Component, there needs to be a `render` method. This returns HTML that will be rendered when this component is used. When working with React we can use actually just return HTML in our render function. This is really handy and makes it easy to dynamically put HTML on the page. This ability to return HTML is a feature of JSX, which is an extension of JavaScript. Go ahead and play around with what is returned. 
 
 You can use the `{}` to execute code inside the HTML. 
 Try putting the NAME variable into your HTML like this:
